@@ -53,7 +53,7 @@ const searchCockTailFail = (err)=>({
 export function fetchCocktail(){
     return function (dispatch){
         dispatch(fetchCockTailStart());
-        axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s').then(res=>{
+        axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s').then(res=>{
             const cocktails = res.data.drinks;
             dispatch(fetchCockTailSuccess(cocktails))
         }).catch(err=>{
@@ -67,7 +67,7 @@ export function fetchCocktail(){
 export function fetchSingleCocktail(id){
     return function (dispatch){
         dispatch(fetchSingleCockTailStart());
-        axios.get(`http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`).then(res=>{
+        axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`).then(res=>{
             const cocktail = res.data.drinks;
             dispatch(fetchSingleCockTailSuccess(cocktail))
         }).catch(err=>{
@@ -81,7 +81,7 @@ export function fetchSingleCocktail(id){
 export function searchCocktail(searchText){
     return function (dispatch){
         dispatch(searchCockTailStart());
-        axios.get(`http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchText}`).then(res=>{
+        axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchText}`).then(res=>{
             const cocktails = res.data.drinks;
             dispatch(searchCockTailSuccess(cocktails))
         }).catch(err=>{
